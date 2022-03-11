@@ -1,0 +1,27 @@
+<div
+class="flex flex-col h-full bg-gray-100 bg-opacity-75 px-4 pt-4 pb-4 rounded-lg overflow-hidden text-center relative"
+>
+    <h2 class="tracking-widest text-gray-500 mb-3 text-xl">
+        {{car.carName}}
+        <span class="text-gray-400 text-lg">
+            {{car.carModel}}, {{car.year}}yr.
+        </span>
+    </h2>
+    <div class="block w-full h-44 rounded-md overflow-hidden">
+        <div *ngIf="car.image; else noImage" class="w-full h-full bg-cover" [style.background-image]="'url(' + car.image + ')'"></div>
+        <ng-template #noImage>
+            <div class="flex w-full h-full items-center bg-white justify-around">
+                <span class="material-icons opacity-75 text-gray-400 text-7xl">wallpaper</span>
+            </div>
+        </ng-template>
+    </div>
+    <span [class]="{'text-green-600': car.discount, 'text-gray-500': !car.discount}" class="self-end pt-4 text-xl font-medium">${{car.price | discount: car.discount }}</span>
+
+    <div class="self-end text-md font-medium text-gray-400 text-right" *ngIf="car.discount">
+        Old price: ${{car.price}}
+    </div>
+
+</div>
+
+
+

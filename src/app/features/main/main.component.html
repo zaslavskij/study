@@ -1,0 +1,19 @@
+<app-header (toggleDrawer)="toggleSidebar()"></app-header>
+
+<div class="flex flex-row">
+  <app-aside *ngIf="asideShown"> </app-aside>
+  <section class="flex text-gray-600 body-font">
+    <div class="container px-5 pt-5 mx-auto">
+
+        <ng-container *ngIf="cars.length">
+            <div class="flex flex-wrap">
+              <ng-container *ngFor="let car of cars">
+                  <app-car class="p-4 w-1/3"  [car]="car"></app-car>
+              </ng-container>
+            </div>
+        </ng-container>
+
+
+    </div>
+  </section>
+</div>
