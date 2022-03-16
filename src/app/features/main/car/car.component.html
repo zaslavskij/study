@@ -8,7 +8,8 @@ class="flex flex-col h-full bg-gray-100 bg-opacity-75 px-4 pt-4 pb-4 rounded-lg 
         </span>
     </h2>
     <div class="block w-full h-44 rounded-md overflow-hidden">
-        <div *ngIf="car.image; else noImage" class="w-full h-full bg-cover" [style.background-image]="'url(' + car.image + ')'"></div>
+        <div *ngIf="car.image; else noImage" class="w-full h-full bg-cover" [style.background-image]="imagePath">
+        </div>
         <ng-template #noImage>
             <div class="flex w-full h-full items-center bg-white justify-around">
                 <span class="material-icons opacity-75 text-gray-400 text-7xl">wallpaper</span>

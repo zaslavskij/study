@@ -5,10 +5,14 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class DiscountPipe implements PipeTransform {
 
-  transform(value: number, discount?: number): unknown {
-    let resultedPrice = discount ? value - value/100 * discount : value;
-    resultedPrice = +resultedPrice.toFixed(2)
-    return resultedPrice
+  transform(price: number, discount?: number): unknown {
+    if (discount){
+      const pricePart = 1 - (discount / 100);
+      const newPrice = price * pricePart;
+      const viewPrice = Number(newPrice.toFixed(2))
+      return viewPrice;
+    }
+    return price;
   }
 
 }
